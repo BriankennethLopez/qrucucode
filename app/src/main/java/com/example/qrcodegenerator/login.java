@@ -45,10 +45,15 @@ public class login extends AppCompatActivity {
         String gName=sharedPreferences.getString(myuser,"");
         String gpassword=sharedPreferences.getString(mypassword,"");
 
-        Toast.makeText(this, gName+ "\n"+ gpassword, Toast.LENGTH_SHORT).show();
 
+        if (usernames.equals(gName)&&passwords.equals(gpassword)){
             Intent y = new Intent(login.this, MainActivity.class);
             startActivity(y);
+        }else {
+            Toast.makeText(this, "invalid", Toast.LENGTH_SHORT).show();
+        }
+
+
         }
 
 

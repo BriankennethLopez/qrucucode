@@ -2,6 +2,7 @@ package com.example.qrcodegenerator;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,7 +13,7 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
   private static final String TEXT_TYPE = " TEXT";
   private static final String INTEGER_TYPE = " INTEGER";
   private static final String COMMA_SEP = ",";
-  private static final String DATABASE_NAME = "contactrace.db";
+  private static final String DATABASE_NAME = "contactracis.db";
   private static final int DATABASE_VERSION = 1;
 
   private static final String SQL_CREATE_ENTRIES =
@@ -20,12 +21,10 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
                   MemoryContract.MemoryEntry._ID + INTEGER_TYPE + " PRIMARY KEY" + COMMA_SEP +
                   MemoryContract.MemoryEntry.COLUMN_NAME + TEXT_TYPE + COMMA_SEP +
                   MemoryContract.MemoryEntry.COLUMN_ADDRESS + TEXT_TYPE + COMMA_SEP +
-                  MemoryContract.MemoryEntry.COLUMN_CONTACT + TEXT_TYPE + COMMA_SEP +
-                  MemoryContract.MemoryEntry.COLUMN_TYPES + TEXT_TYPE + COMMA_SEP +
-                  MemoryContract.MemoryEntry.COLUMN_IMAGE + TEXT_TYPE +" )";
+                  MemoryContract.MemoryEntry.COLUMN_CONTACT + TEXT_TYPE+" )";
 
   public MemoryDbHelper(Context context) {
-    super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    super( context, DATABASE_NAME, null, DATABASE_VERSION);
   }
 
   @Override
@@ -59,8 +58,6 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
     values.put(MemoryContract.MemoryEntry.COLUMN_NAME, memory.getName());
     values.put(MemoryContract.MemoryEntry.COLUMN_ADDRESS,memory.getAddress());
     values.put(MemoryContract.MemoryEntry.COLUMN_CONTACT,memory.getContact());
-    values.put(MemoryContract.MemoryEntry.COLUMN_TYPES,memory.getType());
-    values.put(MemoryContract.MemoryEntry.COLUMN_IMAGE, memory.getImageAsString());
 
     return db.insert(MemoryContract.MemoryEntry.TABLE_NAME, null, values) != -1;
   }

@@ -25,6 +25,8 @@ public class types extends AppCompatActivity {
     }
 
     public void admin(View view) {
+        Intent pj = new Intent(types.this,admin.class);
+        startActivity(pj);
 
     }
 }

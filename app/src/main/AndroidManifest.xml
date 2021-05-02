@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QRcodeGenerator">
+        <activity android:name=".showallscan"></activity>
+        <activity android:name=".persontoperson" />
         <activity android:name=".scannerguest" />
         <activity android:name=".admin" />
         <activity android:name=".guest" />
@@ -18,8 +20,8 @@
         <activity android:name=".Scanner" />
         <activity android:name=".QRcode" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".login"/>
-            <activity android:name=".types" >
+        <activity android:name=".login" />
+        <activity android:name=".types">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

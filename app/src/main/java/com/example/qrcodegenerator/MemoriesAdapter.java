@@ -29,19 +29,18 @@ public class MemoriesAdapter extends CursorAdapter {
         Memory memory = new Memory(cursor);
 
         holder.titleTextView.setText(memory.getName());
-        holder.imageView.setImageBitmap(memory.getImage());
         holder.textView.setText(memory.getContact());
 
     }
 
     private class ViewHolder {
-        final ImageView imageView;
+
         final TextView titleTextView;
         final TextView textView;
 
 
         ViewHolder(View view) {
-            imageView = view.findViewById(R.id.list_item_image_view);
+
             titleTextView = view.findViewById(R.id.list_item_text_view);
             textView = view.findViewById(R.id.list_item_text_viewer);
 

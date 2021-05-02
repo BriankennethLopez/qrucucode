@@ -89,6 +89,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void scan(View view){
-        startActivity(new Intent(this, Scanner.class));
+        startActivity(new Intent(this, showallscan.class));
     }
 }
