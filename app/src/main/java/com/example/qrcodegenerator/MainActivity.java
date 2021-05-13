@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.zxing.client.android.Intents;
@@ -19,21 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
     //CLASSES
     SharedPreferences sharedPreferences;//Creating Xml
-    SharedPreferences.Editor editor;// Input Data SharedPref
-
     //Fields
-    private static final String myPref="Info";//Info.xml
-    private static final String myuser="Username";
-    private static final String mypassword="Password";
-    private static final String myname="Name";
-    private static final String myaddress="Address";
-    private static final String mycontact="Contact";
-    private static final String mycourse="Course";
 
 
-
-    EditText etName,etAddress,etContact,etcourse,etpurpose;
-    String gResult,gName,gAddress,gContact,gCourse,gPurpose;
+    RadioGroup radioGroupone,radioGrouptwo;
+    RadioButton radioButtonone,radioButtontwo,radioButtononee,radioButtontwoe;
+    EditText etName,etAddress,etContact,etcourse,etpurpose,etlocation;
+    String gResult,gName,gAddress,gContact,gCourse,gPurpose,glocation;
     JSONObject jsonObject;
     JSONArray jsonArray;
     String result;
@@ -42,22 +36,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        radioGroupone = findViewById(R.id.radioone);
+        radioGrouptwo= findViewById(R.id.radiotwo);
+        radioButtonone =findViewById(R.id.yess);
+        radioButtontwo =findViewById(R.id.noo);
         etName=findViewById(R.id.etName);
         etAddress=findViewById(R.id.etAddress);
         etContact=findViewById(R.id.etContact);
         etcourse = findViewById(R.id.etCourse);
         etpurpose= findViewById(R.id.etpurpose);
+        etlocation = findViewById(R.id.locations);
 
-        sharedPreferences=getSharedPreferences(myPref,MODE_PRIVATE);
-        String mname=sharedPreferences.getString(myname,"");
-        String maddress=sharedPreferences.getString(myaddress,"");
-        String mcontact=sharedPreferences.getString(mycontact,"");
-        String mcourse=sharedPreferences.getString(mycourse,"");
+
+        sharedPreferences=getSharedPreferences("userinfo",0);
+        String mname=sharedPreferences.getString("name","");
+        String maddress=sharedPreferences.getString("address","");
+        String mcontact=sharedPreferences.getString("contact","");
 
         etName.setText(mname);
         etAddress.setText(maddress);
         etContact.setText(mcontact);
-        etcourse.setText(mcourse);
 
     }
     public void generate(View view){
@@ -66,9 +64,14 @@ public class MainActivity extends AppCompatActivity {
         gContact=etContact.getText().toString().toLowerCase();
         gCourse=etcourse.getText().toString().toLowerCase();
         gPurpose=etpurpose.getText().toString().toLowerCase();
-        if (gName.isEmpty()&&gAddress.isEmpty()&&gContact.isEmpty()&&gCourse.isEmpty()&&gPurpose.isEmpty()){
+        glocation=etlocation.getText().toString().toLowerCase();
+        int radioidtwo = radioGrouptwo.getCheckedRadioButtonId();
+        int radioidone = radioGroupone.getCheckedRadioButtonId();
+        radioButtononee = findViewById(radioidone);
+        radioButtontwoe = findViewById(radioidtwo);
+        if (gCourse.isEmpty()&&gPurpose.isEmpty()&&!radioButtonone.isChecked()||!radioButtontwo.isChecked()){
             Toast.makeText(this, "fill up all", Toast.LENGTH_SHORT).show();
-        }else {
+        }else{
             //generate qr code
             jsonObject = new JSONObject();
             try {
@@ -91,4 +94,21 @@ public class MainActivity extends AppCompatActivity {
     public void scan(View view){
         startActivity(new Intent(this, showallscan.class));
     }
+
+    public void pressoffice(View view) {
+        Toast.makeText(this, "OFFICE", Toast.LENGTH_SHORT).show();
+    }
+
+    public void POV(View view) {
+        Toast.makeText(this, "Purpose of visit", Toast.LENGTH_SHORT).show();
+    }
+
+    public void yessir(View view) {
+        etlocation.setVisibility(View.VISIBLE);
+    }
+
+    public void nosir(View view) {
+        etlocation.setVisibility(View.INVISIBLE);
+    }
+
 }

@@ -13,18 +13,7 @@ import android.widget.Toast;
 public class login extends AppCompatActivity {
 
     EditText usernames,passwords;
-
-    SharedPreferences sharedPreferences;//Creating Xml
-    SharedPreferences.Editor editor;// Input Data SharedPref
-
-    //Fields
-    private static final String myPref="Info";//Info.xml
-    private static final String myuser="Username";
-    private static final String mypassword="Password";
-    private static final String myname="Name";
-    private static final String myaddress="Address";
-    private static final String mycontact="Contact";
-    private static final String mycourse="Course";
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -33,25 +22,24 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         usernames = findViewById(R.id.usermane);
         passwords = findViewById(R.id.psswrd);
-
-
-
-
-
+        sharedPreferences=getSharedPreferences("userinfo",0);
     }
 
     public void login(View view) {
-        sharedPreferences=getSharedPreferences(myPref,MODE_PRIVATE);
-        String gName=sharedPreferences.getString(myuser,"");
-        String gpassword=sharedPreferences.getString(mypassword,"");
+        String uservalue = usernames.getText().toString();
+        String userpass = passwords.getText().toString();
 
-
-        if (usernames.equals(gName)&&passwords.equals(gpassword)){
-            Intent y = new Intent(login.this, MainActivity.class);
-            startActivity(y);
-        }else {
-            Toast.makeText(this, "invalid", Toast.LENGTH_SHORT).show();
+        String registeredusername = sharedPreferences.getString("username","");
+        String registeredpassword = sharedPreferences.getString("password","");
+        if(uservalue.equals("") ||userpass.equals("") ){
+            Toast.makeText(this, "NO Data", Toast.LENGTH_SHORT).show();
+        }else if (uservalue.equals(registeredusername) && userpass.equals(registeredpassword)){
+            usernames.setText("");
+            passwords.setText("");
+            Intent fg = new Intent(login.this,MainActivity.class);
+            startActivity(fg);
         }
+
 
 
         }
