@@ -1,60 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".guest">
+    tools:context=".guest"
+    android:orientation="vertical">
+
 
     <EditText
-        android:id="@+id/ettmame"
+        android:id="@+id/etname1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:hint="name" />
 
     <EditText
-        android:id="@+id/ettaddress"
+        android:id="@+id/etpermanentaddress1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="address"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.593" />
-
-    <EditText
-        android:id="@+id/ettcontract"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="contact"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688" />
-
+        android:hint="Permanent address"
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ettpurpose"
-        android:hint="purpose"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778" />
+        android:hint="Present address"
+        android:id="@+id/presentaddress1"/>
+
+
+
+    <EditText
+        android:id="@+id/etcontact1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact number"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:id="@+id/email1"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Age"
+        android:id="@+id/age1"/>
+
+
 
     <Button
         android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="guestid"
-        android:text="generate guest id"
+        android:text="generate my qr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,4 +60,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.934" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class register extends AppCompatActivity {
-    EditText user,pass,name,address,contact,course;
+    EditText user,pass,name,permanentaddress,contact,presentaddress,email,age;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -20,9 +20,12 @@ public class register extends AppCompatActivity {
         user = findViewById(R.id.etuser);
         pass = findViewById(R.id.etpassword);
         name = findViewById(R.id.etname);
-        address = findViewById(R.id.etaddress);
+        permanentaddress = findViewById(R.id.etpermanentaddress);
+        presentaddress = findViewById(R.id.presentaddress);
+        email = findViewById(R.id.email);
+        age = findViewById(R.id.age);
         contact = findViewById(R.id.etcontact);
-        sharedPreferences=getSharedPreferences("userinfo",0);
+        sharedPreferences=getSharedPreferences("Userinform",0);
 
 
 
@@ -32,20 +35,24 @@ public class register extends AppCompatActivity {
         String uservalue= user.getText().toString();
         String passvalue= pass.getText().toString();
         String namevalue= name.getText().toString();
-        String addressvalue= address.getText().toString();
+        String permanentaddressvalue= permanentaddress.getText().toString();
+        String presentaddressvalue= presentaddress.getText().toString();
         String contactvalue= contact.getText().toString();
-        String coursevalue= course.getText().toString();
+        String emailvalue= email.getText().toString();
+        String agevalue= age.getText().toString();
 
-        if(user.equals("")||pass.equals("")||name.equals("")||address.equals("")||contact.equals("")||course.equals("")){
+        if(user.equals("")||pass.equals("")||name.equals("")||permanentaddress.equals("")||contact.equals("")||age.equals("")||presentaddress.equals("")){
             Toast.makeText(this, "Please fill all the requirements", Toast.LENGTH_SHORT).show();
         }else if (uservalue.length()>1) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("username", uservalue);
             editor.putString("password", passvalue);
             editor.putString("name", namevalue);
-            editor.putString("address", addressvalue);
+            editor.putString("presentaddress", presentaddressvalue);
             editor.putString("contact", contactvalue);
-            editor.putString("course", coursevalue);
+            editor.putString("premanentaddress", permanentaddressvalue);
+            editor.putString("email", emailvalue);
+            editor.putString("age", agevalue);
             editor.apply();
             Toast.makeText(this, "user registered", Toast.LENGTH_SHORT).show();
             Intent ig = new Intent(register.this,login.class);

@@ -21,12 +21,33 @@
      />
 
     <EditText
-        android:id="@+id/etAddress"
+        android:id="@+id/etpermanentaddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="address"
+        android:hint="permanentaddress"
         android:enabled="false"
         android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/etpresentaddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="presentaddress"
+            android:enabled="false"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/etemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:enabled="false"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/etage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="age"
+            android:enabled="false"
+            android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etContact"
@@ -37,7 +58,7 @@
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/etCourse"
+        android:id="@+id/etoffice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Office"
@@ -96,11 +117,13 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yes"/>
+            android:text="Yes"
+            android:id="@+id/twoyes"/>
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No"/>
+            android:text="No"
+            android:id="@+id/twono"/>
     </RadioGroup>
 
         <TextView
@@ -111,15 +134,18 @@
 
         <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+            android:id="@+id/radiothree">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yes"/>
+            android:text="Yes"
+            android:id="@+id/threeyes"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No"/>
+            android:text="No"
+            android:id="@+id/threeno"/>
     </RadioGroup>
     <Button
         android:id="@+id/button4"

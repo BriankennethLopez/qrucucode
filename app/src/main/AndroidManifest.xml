@@ -20,8 +20,9 @@
         <activity android:name=".Scanner" />
         <activity android:name=".QRcode" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".login" />
-        <activity android:name=".types">
+        <activity android:name=".types"/>
+        <activity android:name=".login">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

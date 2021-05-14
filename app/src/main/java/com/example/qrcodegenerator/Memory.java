@@ -26,10 +26,14 @@ public class Memory {
 
 
 
+
+
     public Memory(Cursor cursor) {
         this.name = cursor.getString(COL_NAME);
-        this.address = cursor.getString(COL_ADDRESS);
         this.contact = cursor.getString(COL_CONTACT);
+        this.address = cursor.getString(COL_ADDRESS);
+
+
 
 
 
@@ -40,6 +44,8 @@ public class Memory {
         this.name = name;
         this.address = address;
         this.contact = contact;
+
+
 
 
 

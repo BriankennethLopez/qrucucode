@@ -21,10 +21,10 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
                   MemoryContract.MemoryEntry._ID + INTEGER_TYPE + " PRIMARY KEY" + COMMA_SEP +
                   MemoryContract.MemoryEntry.COLUMN_NAME + TEXT_TYPE + COMMA_SEP +
                   MemoryContract.MemoryEntry.COLUMN_ADDRESS + TEXT_TYPE + COMMA_SEP +
-                  MemoryContract.MemoryEntry.COLUMN_CONTACT + TEXT_TYPE+" )";
+                  MemoryContract.MemoryEntry.COLUMN_CONTACT + TEXT_TYPE + " )";
 
   public MemoryDbHelper(Context context) {
-    super( context, DATABASE_NAME, null, DATABASE_VERSION);
+    super(context, DATABASE_NAME, null, DATABASE_VERSION);
   }
 
   @Override
@@ -56,11 +56,9 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
 
     ContentValues values = new ContentValues();
     values.put(MemoryContract.MemoryEntry.COLUMN_NAME, memory.getName());
-    values.put(MemoryContract.MemoryEntry.COLUMN_ADDRESS,memory.getAddress());
-    values.put(MemoryContract.MemoryEntry.COLUMN_CONTACT,memory.getContact());
+    values.put(MemoryContract.MemoryEntry.COLUMN_ADDRESS, memory.getAddress());
+    values.put(MemoryContract.MemoryEntry.COLUMN_CONTACT, memory.getContact());
 
     return db.insert(MemoryContract.MemoryEntry.TABLE_NAME, null, values) != -1;
   }
-
-
 }

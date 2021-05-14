@@ -23,11 +23,18 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;//Creating Xml
     //Fields
 
+    //radiobutton1
+    RadioGroup radioGroupone;
+    RadioButton radioButtononeyes,radioButtononeno,radioButtonvalue;
+    //radiobutton 2
+    RadioGroup radioGrouptwo;
+    RadioButton radioButtoyestwo,radioButtonnotwo,radioButtontwovalue;
+    //radiobutton3
+    RadioGroup radioGroupthree;
+    RadioButton radioButtoyesthree,radioButtonnothree,radioButtonthreevalue;
 
-    RadioGroup radioGroupone,radioGrouptwo;
-    RadioButton radioButtonone,radioButtontwo,radioButtononee,radioButtontwoe;
-    EditText etName,etAddress,etContact,etcourse,etpurpose,etlocation;
-    String gResult,gName,gAddress,gContact,gCourse,gPurpose,glocation;
+    EditText etName,etContact,etoffice,etpurpose,etlocation,etpermanentAddress,etpresentaddress,etemail,etage;
+    String gResult,gName,gpermanentaddress,gpresenttaddress,gContact,goffice,gPurpose,glocation,gemail,gage,radiodataone,radiodatatwo,radiodatathree;
     JSONObject jsonObject;
     JSONArray jsonArray;
     String result;
@@ -36,50 +43,80 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //group1
         radioGroupone = findViewById(R.id.radioone);
+        radioButtononeyes =findViewById(R.id.yess);
+        radioButtononeno =findViewById(R.id.noo);
+
+        //group2
         radioGrouptwo= findViewById(R.id.radiotwo);
-        radioButtonone =findViewById(R.id.yess);
-        radioButtontwo =findViewById(R.id.noo);
+        radioButtoyestwo = findViewById(R.id.twoyes);
+        radioButtonnotwo = findViewById(R.id.twono);
+        //group 3
+        radioGroupthree=findViewById(R.id.radiothree);
+        radioButtoyesthree=findViewById(R.id.threeyes);
+        radioButtonnothree=findViewById(R.id.threeno);
+
         etName=findViewById(R.id.etName);
-        etAddress=findViewById(R.id.etAddress);
+        etemail=findViewById(R.id.etemail);
+        etage=findViewById(R.id.etage);
+        etpurpose=findViewById(R.id.etpurpose);
+        etpermanentAddress=findViewById(R.id.etpermanentaddress);
+        etpresentaddress = findViewById(R.id.etpresentaddress);
         etContact=findViewById(R.id.etContact);
-        etcourse = findViewById(R.id.etCourse);
+        etoffice = findViewById(R.id.etoffice);
         etpurpose= findViewById(R.id.etpurpose);
         etlocation = findViewById(R.id.locations);
 
 
-        sharedPreferences=getSharedPreferences("userinfo",0);
+        sharedPreferences=getSharedPreferences("Userinform",0);
         String mname=sharedPreferences.getString("name","");
-        String maddress=sharedPreferences.getString("address","");
+        String permanentaddress=sharedPreferences.getString("premanentaddress","");
+        String presentaddress=sharedPreferences.getString("presentaddress","");
         String mcontact=sharedPreferences.getString("contact","");
+        String memail=sharedPreferences.getString("email","");
+        String mage=sharedPreferences.getString("age","");
 
         etName.setText(mname);
-        etAddress.setText(maddress);
+        etpresentaddress.setText(presentaddress);
+        etpermanentAddress.setText(permanentaddress);
         etContact.setText(mcontact);
+        etemail.setText(memail);
+        etage.setText(mage);
+
 
     }
     public void generate(View view){
         gName=etName.getText().toString().toLowerCase();
-        gAddress=etAddress.getText().toString().toLowerCase();
         gContact=etContact.getText().toString().toLowerCase();
-        gCourse=etcourse.getText().toString().toLowerCase();
         gPurpose=etpurpose.getText().toString().toLowerCase();
         glocation=etlocation.getText().toString().toLowerCase();
+        goffice=etoffice.getText().toString().toLowerCase();
+        gpermanentaddress=etpermanentAddress.getText().toString().toLowerCase();
+        gpresenttaddress=etpresentaddress.getText().toString().toLowerCase();
+        gage=etage.getText().toString().toLowerCase();
         int radioidtwo = radioGrouptwo.getCheckedRadioButtonId();
         int radioidone = radioGroupone.getCheckedRadioButtonId();
-        radioButtononee = findViewById(radioidone);
-        radioButtontwoe = findViewById(radioidtwo);
-        if (gCourse.isEmpty()&&gPurpose.isEmpty()&&!radioButtonone.isChecked()||!radioButtontwo.isChecked()){
+        int radioidthree = radioGroupone.getCheckedRadioButtonId();
+        radioButtonvalue = findViewById(radioidone);
+        radioButtontwovalue = findViewById(radioidtwo);
+        radioButtonthreevalue = findViewById(radioidthree);
+        if (goffice.isEmpty()&&gPurpose.isEmpty()&&!radioButtononeyes.isChecked()&&!radioButtononeno.isChecked()&&!radioButtoyestwo.isChecked()&&!radioButtonnotwo.isChecked()&&!radioButtoyesthree.isChecked()&&!radioButtonnothree.isChecked()){
             Toast.makeText(this, "fill up all", Toast.LENGTH_SHORT).show();
         }else{
-            //generate qr code
             jsonObject = new JSONObject();
             try {
                 jsonObject.put("name",gName);
-                jsonObject.put("address",gAddress);
+                jsonObject.put("presentaddress",gpresenttaddress);
+                jsonObject.put("permanentaddress",gpermanentaddress);
                 jsonObject.put("contact",gContact);
-                jsonObject.put("course",gCourse);
+                jsonObject.put("office",goffice);
                 jsonObject.put("purpose",gPurpose);
+                jsonObject.put("email",gemail);
+                jsonObject.put("age",gage);
+                jsonObject.put("option1",radioButtonvalue.getText());
+                jsonObject.put("option2",radioButtontwovalue.getText());
+                jsonObject.put("option3",radioButtonthreevalue.getText());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

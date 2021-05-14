@@ -22,7 +22,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         usernames = findViewById(R.id.usermane);
         passwords = findViewById(R.id.psswrd);
-        sharedPreferences=getSharedPreferences("userinfo",0);
+        sharedPreferences=getSharedPreferences("Userinform",0);
     }
 
     public void login(View view) {
@@ -36,7 +36,7 @@ public class login extends AppCompatActivity {
         }else if (uservalue.equals(registeredusername) && userpass.equals(registeredpassword)){
             usernames.setText("");
             passwords.setText("");
-            Intent fg = new Intent(login.this,MainActivity.class);
+            Intent fg = new Intent(login.this,types.class);
             startActivity(fg);
         }
 

@@ -15,7 +15,7 @@ public class types extends AppCompatActivity {
     }
 
     public void student(View view) {
-        Intent kl = new Intent(types.this,login.class);
+        Intent kl = new Intent(types.this,MainActivity.class);
         startActivity(kl);
     }
 
