@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         gPurpose=etpurpose.getText().toString().toLowerCase();
         glocation=etlocation.getText().toString().toLowerCase();
         goffice=etoffice.getText().toString().toLowerCase();
+        gemail=etemail.getText().toString();
         gpermanentaddress=etpermanentAddress.getText().toString().toLowerCase();
         gpresenttaddress=etpresentaddress.getText().toString().toLowerCase();
         gage=etage.getText().toString().toLowerCase();
@@ -114,9 +115,10 @@ public class MainActivity extends AppCompatActivity {
                 jsonObject.put("purpose",gPurpose);
                 jsonObject.put("email",gemail);
                 jsonObject.put("age",gage);
-                jsonObject.put("option1",radioButtonvalue.getText());
-                jsonObject.put("option2",radioButtontwovalue.getText());
-                jsonObject.put("option3",radioButtonthreevalue.getText());
+                jsonObject.put("location",glocation);
+                jsonObject.put("radvalues",radioButtonvalue.getText().toString().toLowerCase());
+                jsonObject.put("radvaluess",radioButtontwovalue.getText().toString().toLowerCase());
+                jsonObject.put("radvaluesss",radioButtonthreevalue.getText().toString().toLowerCase());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

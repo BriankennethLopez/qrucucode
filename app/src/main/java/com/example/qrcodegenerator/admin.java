@@ -18,15 +18,15 @@ public class admin extends AppCompatActivity {
 
         username=findViewById(R.id.adminusername);
         password=findViewById(R.id.adminpassword);
+
     }
 
     public void submit(View view) {
-        if(username.equals("student123")&&password.equals("student123")){
+        String uservalue = username.getText().toString();
+        String userpass = password.getText().toString();
+        if(uservalue.equals("Student")&&userpass.equals("Student")){
             Intent rt = new Intent(admin.this,Scanner.class);
             startActivity(rt);
-        }else if(username.equals("guest123")&&password.equals("guest123")){
-            Intent rf = new Intent(admin.this,Scanner.class);
-            startActivity(rf);
         }else {
             Toast.makeText(this, "invalid", Toast.LENGTH_SHORT).show();
         }

@@ -38,7 +38,11 @@ public class guest extends AppCompatActivity {
         String memail=sharedPreferences.getString("email","");
         String mage=sharedPreferences.getString("age","");
         etgName.setText(mname);
-        etpermanentddress.setText(m);
+        etpermanentddress.setText(permanentaddress);
+        etpresentaddress.setText(presentaddress);
+        etgContact.setText(mcontact);
+        etgContact.setText(memail);
+        etage.setText(mage);
 
     }
 

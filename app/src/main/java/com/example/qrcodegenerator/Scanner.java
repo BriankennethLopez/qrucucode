@@ -43,7 +43,7 @@ public class Scanner extends AppCompatActivity {
     CodeScanner codeScanner;
     CodeScannerView codeScannerView;
     TextView tvResult;
-    String gResult,gName,gAddress,gContact,gCourse,gPurpose;
+    String gResult,gName,gpermanentaddress,gpresentaddress,gContact,gOffice,gPurpose,gLocation,gEmail,gage,goption1,goption2,goption3;
     JSONObject jsonObject;
     JSONArray jsonArray;
     
@@ -68,17 +68,24 @@ public class Scanner extends AppCompatActivity {
                 try {
                     jsonObject=new JSONObject(gResult);
                     gName=jsonObject.getString("name");
-                    gAddress=jsonObject.getString("address");
+                    gpermanentaddress=jsonObject.getString("permanentaddress");
+                    gpresentaddress=jsonObject.getString("presentaddress");
                     gContact=jsonObject.getString("contact");
-                    gCourse=jsonObject.getString("course");
+                    gOffice=jsonObject.getString("office");
                     gPurpose=jsonObject.getString("purpose");
+                    gLocation=jsonObject.getString("location");
+                    gEmail=jsonObject.getString("email");
+                    gage=jsonObject.getString("age");
+                    goption1=jsonObject.getString("radvalues");
+                    goption2=jsonObject.getString("radvaluess");
+                    goption3=jsonObject.getString("radvaluesss");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 AlertDialog.Builder alert = new AlertDialog.Builder(Scanner.this);
                 alert.setTitle("Confirm");
                 alert.setCancelable(false);
-                alert.setMessage("Name: "+gName +"\n"+"Address: "+gAddress +"\n"+"Contact: "+gContact+"\n"+"Course: "+gCourse+"\n"+"Purpose: "+gPurpose);
+                alert.setMessage("Name: "+gName +"\n"+"permanentAddress: "+gpermanentaddress +"\n"+"presentAddress: "+gpresentaddress +"\n"+"Contact: "+gContact+"\n"+"Office: "+gOffice+"\n"+"Purpose: "+gPurpose+"\n"+"Location: "+gLocation+"\n"+"location: "+goption1+"\n"+"covidpatient: "+goption2+"\n"+"Syntomps: "+goption3+"\n"+"age: "+gage+"\n"+"email: "+gEmail);
                 alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -102,10 +109,17 @@ public class Scanner extends AppCompatActivity {
                             protected Map<String, String> getParams() throws AuthFailureError {
                                 Map<String,String> param = new HashMap<String,String>();
                                 param.put("name",gName);
-                                param.put("address",gAddress);
+                                param.put("permanentaddress",gpermanentaddress);
+                                param.put("presentaddress",gpresentaddress);
                                 param.put("contact",gContact);
-                                param.put("course",gCourse);
+                                param.put("office",gOffice);
                                 param.put("purpose",gPurpose);
+                                param.put("email",gEmail);
+                                param.put("age",gage);
+                                param.put("location",gLocation);
+                                param.put("cption1",goption1);
+                                param.put("option2",goption2);
+                                param.put("option3",goption3);
                                 return param;
                             }
                         };
