@@ -39,7 +39,6 @@ public class register extends AppCompatActivity {
         String presentaddressvalue= presentaddress.getText().toString();
         String contactvalue= contact.getText().toString();
         String emailvalue= email.getText().toString();
-        String agevalue= age.getText().toString();
 
         if(user.equals("")||pass.equals("")||name.equals("")||permanentaddress.equals("")||contact.equals("")||age.equals("")||presentaddress.equals("")){
             Toast.makeText(this, "Please fill all the requirements", Toast.LENGTH_SHORT).show();
@@ -52,7 +51,6 @@ public class register extends AppCompatActivity {
             editor.putString("contact", contactvalue);
             editor.putString("premanentaddress", permanentaddressvalue);
             editor.putString("email", emailvalue);
-            editor.putString("age", agevalue);
             editor.apply();
             Toast.makeText(this, "user registered", Toast.LENGTH_SHORT).show();
             Intent ig = new Intent(register.this,login.class);

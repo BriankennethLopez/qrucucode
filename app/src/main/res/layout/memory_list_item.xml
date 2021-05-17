@@ -24,23 +24,53 @@
 
 
             <TextView
-                android:id="@+id/list_item_text_viewer"
+                android:id="@+id/list_item_text_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:padding="4dp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                tools:text="A test title"
+                tools:text="A name"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/list_item_text_view"
+                android:id="@+id/list_item_text_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:padding="4dp"
-                tools:text="A test title"
+                tools:text="A test contact"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/list_view_permanentaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="4dp"
+                tools:text="A test address"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/list_view_presentaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="4dp"
+                tools:text="A test address"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:id="@+id/list_view_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="4dp"
+                tools:text="A test address"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 />

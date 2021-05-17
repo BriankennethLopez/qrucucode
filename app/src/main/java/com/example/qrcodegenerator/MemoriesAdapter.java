@@ -30,6 +30,11 @@ public class MemoriesAdapter extends CursorAdapter {
 
         holder.titleTextView.setText(memory.getName());
         holder.textView.setText(memory.getContact());
+        holder.permanentaddresstextView.setText(memory.getPermanentaddress());
+        holder.presentaddress.setText(memory.getPresentaddress());
+        holder.email.setText(memory.getEmail());
+
+
 
     }
 
@@ -37,12 +42,17 @@ public class MemoriesAdapter extends CursorAdapter {
 
         final TextView titleTextView;
         final TextView textView;
-
+        final TextView permanentaddresstextView;
+        final TextView presentaddress;
+        final TextView email;
 
         ViewHolder(View view) {
 
-            titleTextView = view.findViewById(R.id.list_item_text_view);
-            textView = view.findViewById(R.id.list_item_text_viewer);
+            titleTextView = view.findViewById(R.id.list_item_text_name);
+            textView = view.findViewById(R.id.list_item_text_contact);
+            permanentaddresstextView=view.findViewById(R.id.list_view_permanentaddress);
+            presentaddress=view.findViewById(R.id.list_view_presentaddress);
+            email=view.findViewById(R.id.list_view_email);
 
 
 

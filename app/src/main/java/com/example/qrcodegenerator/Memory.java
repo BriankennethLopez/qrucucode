@@ -12,7 +12,9 @@ public class Memory {
     private static final float PREFERRED_WIDTH = 250;
     private static final float PREFERRED_HEIGHT = 250;
     private String name;
-    private String address;
+    private String permanentaddress;
+    private String presentaddress;
+    private String email;
     private String contact;
     private String type;
     private String image;
@@ -20,8 +22,10 @@ public class Memory {
 
     public static final int COL_ID = 0;
     public static final int COL_NAME = 1;
-    public static final int COL_ADDRESS = 2;
-    public static final int COL_CONTACT = 3;
+    public static final int COL_PERMANENTADDRESS = 2;
+    public static final int COL_PRESENTADDRESS = 3;
+    public static final int COL_EMAIL = 4;
+    public static final int COL_CONTACT = 5;
 
 
 
@@ -31,7 +35,10 @@ public class Memory {
     public Memory(Cursor cursor) {
         this.name = cursor.getString(COL_NAME);
         this.contact = cursor.getString(COL_CONTACT);
-        this.address = cursor.getString(COL_ADDRESS);
+        this.permanentaddress = cursor.getString(COL_PERMANENTADDRESS);
+        this.presentaddress = cursor.getString(COL_PRESENTADDRESS);
+        this.email = cursor.getString(COL_EMAIL);
+
 
 
 
@@ -40,9 +47,11 @@ public class Memory {
 
     }
 
-    public Memory(String name,String address,String contact) {
+    public Memory(String name,String permanentaddress,String presentaddress,String contact,String email) {
         this.name = name;
-        this.address = address;
+        this.permanentaddress = permanentaddress;
+        this.presentaddress=presentaddress;
+        this.email=email;
         this.contact = contact;
 
 
@@ -55,8 +64,14 @@ public class Memory {
     public String getName() {
         return this.name;
     }
-    public String getAddress() {
-        return this.address;
+    public String getPermanentaddress() {
+        return this.permanentaddress;
+    }
+    public String getPresentaddress(){
+        return this.presentaddress;
+    }
+    public String getEmail(){
+        return this.email;
     }
 
     public String getContact(){ return this.contact;}

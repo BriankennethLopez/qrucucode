@@ -75,14 +75,13 @@ public class MainActivity extends AppCompatActivity {
         String presentaddress=sharedPreferences.getString("presentaddress","");
         String mcontact=sharedPreferences.getString("contact","");
         String memail=sharedPreferences.getString("email","");
-        String mage=sharedPreferences.getString("age","");
+
 
         etName.setText(mname);
         etpresentaddress.setText(presentaddress);
         etpermanentAddress.setText(permanentaddress);
         etContact.setText(mcontact);
         etemail.setText(memail);
-        etage.setText(mage);
 
 
     }
@@ -102,9 +101,19 @@ public class MainActivity extends AppCompatActivity {
         radioButtonvalue = findViewById(radioidone);
         radioButtontwovalue = findViewById(radioidtwo);
         radioButtonthreevalue = findViewById(radioidthree);
-        if (goffice.isEmpty()&&gPurpose.isEmpty()&&!radioButtononeyes.isChecked()&&!radioButtononeno.isChecked()&&!radioButtoyestwo.isChecked()&&!radioButtonnotwo.isChecked()&&!radioButtoyesthree.isChecked()&&!radioButtonnothree.isChecked()){
-            Toast.makeText(this, "fill up all", Toast.LENGTH_SHORT).show();
-        }else{
+        if (goffice.length()==0){
+            Toast.makeText(this, "where do you go?", Toast.LENGTH_SHORT).show();
+        }else if(gPurpose.length()==0){
+            Toast.makeText(this, "what is your purpose", Toast.LENGTH_SHORT).show();
+        }else if(gage.length()==0){
+            Toast.makeText(this, "tell me your age", Toast.LENGTH_SHORT).show();
+        }else if(!radioButtononeyes.isChecked()&&!radioButtononeno.isChecked()){
+            Toast.makeText(this, "please check the 1st question", Toast.LENGTH_SHORT).show();
+        }else if(!radioButtoyestwo.isChecked()&&!radioButtonnotwo.isChecked()){
+            Toast.makeText(this, "please check the 2nd question", Toast.LENGTH_SHORT).show();
+        }else if(!radioButtoyesthree.isChecked()&&!radioButtonnothree.isChecked()){
+            Toast.makeText(this, "please check the 3rd question", Toast.LENGTH_SHORT).show();
+        }else {
             jsonObject = new JSONObject();
             try {
                 jsonObject.put("name",gName);
@@ -116,9 +125,9 @@ public class MainActivity extends AppCompatActivity {
                 jsonObject.put("email",gemail);
                 jsonObject.put("age",gage);
                 jsonObject.put("location",glocation);
-                jsonObject.put("radvalues",radioButtonvalue.getText().toString().toLowerCase());
-                jsonObject.put("radvaluess",radioButtontwovalue.getText().toString().toLowerCase());
-                jsonObject.put("radvaluesss",radioButtonthreevalue.getText().toString().toLowerCase());
+                jsonObject.put("traveled",radioButtonvalue.getText().toString().toLowerCase());
+                jsonObject.put("covidpatient",radioButtontwovalue.getText().toString().toLowerCase());
+                jsonObject.put("syntomps",radioButtonthreevalue.getText().toString().toLowerCase());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -129,9 +138,6 @@ public class MainActivity extends AppCompatActivity {
             result=jsonObject.toString();
             startActivity(new Intent(this,QRcode.class).putExtra("result",result));
         }
-    }
-    public void scan(View view){
-        startActivity(new Intent(this, showallscan.class));
     }
 
     public void pressoffice(View view) {

@@ -29,4 +29,8 @@ public class types extends AppCompatActivity {
         startActivity(pj);
 
     }
+
+    public void ff(View view) {
+        startActivity(new Intent(this, showallscan.class));
+    }
 }

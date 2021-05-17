@@ -41,13 +41,7 @@
             android:hint="email"
             android:enabled="false"
             android:textColor="@color/black"/>
-        <EditText
-            android:id="@+id/etage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="age"
-            android:enabled="false"
-            android:textColor="@color/black"/>
+
 
     <EditText
         android:id="@+id/etContact"
@@ -56,6 +50,13 @@
         android:hint="contact"
         android:enabled="false"
         android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/etage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="age"
+            android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etoffice"
@@ -147,19 +148,14 @@
             android:text="No"
             android:id="@+id/threeno"/>
     </RadioGroup>
-    <Button
+
+        <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="generate"
         android:text="generate qr" />
         
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="scan"
-        android:text="scan qr" />
 
     </LinearLayout>
 </ScrollView>

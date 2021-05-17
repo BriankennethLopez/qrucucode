@@ -76,9 +76,9 @@ public class Scanner extends AppCompatActivity {
                     gLocation=jsonObject.getString("location");
                     gEmail=jsonObject.getString("email");
                     gage=jsonObject.getString("age");
-                    goption1=jsonObject.getString("radvalues");
-                    goption2=jsonObject.getString("radvaluess");
-                    goption3=jsonObject.getString("radvaluesss");
+                    goption1=jsonObject.getString("traveled");
+                    goption2=jsonObject.getString("covidpatient");
+                    goption3=jsonObject.getString("syntomps");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -91,7 +91,7 @@ public class Scanner extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 //                        Intent r = new Intent(Scanner.this,scannerguest.class);
                         Toast.makeText(Scanner.this, "Added", Toast.LENGTH_SHORT).show();
-                        StringRequest request = new StringRequest(Request.Method.POST,"https://brianenzio.000webhostapp.com/insert.php", new Response.Listener<String>() {
+                        StringRequest request = new StringRequest(Request.Method.POST,"https://brianenzio.000webhostapp.com/ojtmygod/insert.php", new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(Scanner.this, response, Toast.LENGTH_SHORT).show();
@@ -117,9 +117,9 @@ public class Scanner extends AppCompatActivity {
                                 param.put("email",gEmail);
                                 param.put("age",gage);
                                 param.put("location",gLocation);
-                                param.put("cption1",goption1);
-                                param.put("option2",goption2);
-                                param.put("option3",goption3);
+                                param.put("traveled",goption1);
+                                param.put("covidpatient",goption2);
+                                param.put("syntomps",goption3);
                                 return param;
                             }
                         };

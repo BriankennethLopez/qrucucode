@@ -42,7 +42,7 @@ public class persontoperson extends AppCompatActivity {
     CodeScanner codeScanner;
     CodeScannerView codeScannerView;
     TextView tvResult;
-    String gResult,gName,gAddress,gContact,gCourse,gPurpose;
+    String gResult,gName,gpermanentaddress,gpresentaddress,gContact,gemail;
     JSONObject jsonObject;
     JSONArray jsonArray;
 
@@ -66,8 +66,10 @@ public class persontoperson extends AppCompatActivity {
                 try {
                     jsonObject=new JSONObject(gResult);
                     gName=jsonObject.getString("name");
-                    gAddress=jsonObject.getString("address");
+                    gpermanentaddress=jsonObject.getString("permanentaddress");
+                    gpresentaddress=jsonObject.getString("presentaddress");
                     gContact=jsonObject.getString("contact");
+                    gemail=jsonObject.getString("email");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -75,12 +77,12 @@ public class persontoperson extends AppCompatActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(persontoperson.this);
                 alert.setTitle("Confirm");
                 alert.setCancelable(false);
-                alert.setMessage("Name: "+gName +"\n"+"Address: "+gAddress +"\n"+"Contact: "+gContact+"\n"+"Purpose: "+gPurpose);
+                alert.setMessage("Name: "+gName +"\n"+"Present Address: "+gpresentaddress+"\n"+"Permanent Address: "+gpermanentaddress +"\n"+"Contact: "+gContact);
                 alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(persontoperson.this, "Added", Toast.LENGTH_SHORT).show();
-                        new MemoryDbHelper(persontoperson.this).addMemory(new Memory(gName,gAddress,gContact));
+                        new MemoryDbHelper(persontoperson.this).addMemory(new Memory(gName,gpermanentaddress,gpresentaddress,gContact,gemail));
 
                     }
                 });
