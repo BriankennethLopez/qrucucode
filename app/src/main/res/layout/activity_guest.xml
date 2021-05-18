@@ -8,56 +8,62 @@
     android:orientation="vertical">
 
 
-    <EditText
-        android:id="@+id/etname1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="name" />
 
-    <EditText
-        android:id="@+id/etpermanentaddress1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Permanent address"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Present address"
-        android:id="@+id/presentaddress1"/>
+        <EditText
+            android:id="@+id/etname1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="name" />
 
+        <EditText
+            android:id="@+id/etpermanentaddress1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="Permanent address" />
 
-
-    <EditText
-        android:id="@+id/etcontact1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contact number"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:id="@+id/email1"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Age"
-        android:id="@+id/age1"/>
+        <EditText
+            android:id="@+id/presentaddress1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="Present address" />
 
 
+        <EditText
+            android:id="@+id/etcontact1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="Contact number" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="guestid"
-        android:text="generate my qr"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        <EditText
+            android:id="@+id/email1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="time" />
+
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="guestid"
+            android:text="generate my qr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.934" />
 
 </LinearLayout>

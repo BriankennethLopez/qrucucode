@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class register extends AppCompatActivity {
-    EditText user,pass,name,permanentaddress,contact,presentaddress,email,age;
+    EditText user,pass,name,permanentaddress,contact,presentaddress,email;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -23,7 +23,6 @@ public class register extends AppCompatActivity {
         permanentaddress = findViewById(R.id.etpermanentaddress);
         presentaddress = findViewById(R.id.presentaddress);
         email = findViewById(R.id.email);
-        age = findViewById(R.id.age);
         contact = findViewById(R.id.etcontact);
         sharedPreferences=getSharedPreferences("Userinform",0);
 
@@ -40,7 +39,7 @@ public class register extends AppCompatActivity {
         String contactvalue= contact.getText().toString();
         String emailvalue= email.getText().toString();
 
-        if(user.equals("")||pass.equals("")||name.equals("")||permanentaddress.equals("")||contact.equals("")||age.equals("")||presentaddress.equals("")){
+        if(user.equals("")||pass.equals("")||name.equals("")||permanentaddress.equals("")||contact.equals("")||presentaddress.equals("")){
             Toast.makeText(this, "Please fill all the requirements", Toast.LENGTH_SHORT).show();
         }else if (uservalue.length()>1) {
             SharedPreferences.Editor editor = sharedPreferences.edit();

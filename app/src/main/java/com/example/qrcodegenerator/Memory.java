@@ -16,6 +16,7 @@ public class Memory {
     private String presentaddress;
     private String email;
     private String contact;
+    private String date;
     private String type;
     private String image;
 
@@ -26,7 +27,7 @@ public class Memory {
     public static final int COL_PRESENTADDRESS = 3;
     public static final int COL_EMAIL = 4;
     public static final int COL_CONTACT = 5;
-
+    public static final int COL_DATE = 6;
 
 
 
@@ -38,6 +39,7 @@ public class Memory {
         this.permanentaddress = cursor.getString(COL_PERMANENTADDRESS);
         this.presentaddress = cursor.getString(COL_PRESENTADDRESS);
         this.email = cursor.getString(COL_EMAIL);
+        this.date=cursor.getString(COL_DATE);
 
 
 
@@ -47,12 +49,13 @@ public class Memory {
 
     }
 
-    public Memory(String name,String permanentaddress,String presentaddress,String contact,String email) {
+    public Memory(String name,String permanentaddress,String presentaddress,String contact,String email,String date) {
         this.name = name;
         this.permanentaddress = permanentaddress;
         this.presentaddress=presentaddress;
         this.email=email;
         this.contact = contact;
+        this.date = date;
 
 
 
@@ -63,6 +66,9 @@ public class Memory {
 
     public String getName() {
         return this.name;
+    }
+    public String getDate(){
+        return  this.date;
     }
     public String getPermanentaddress() {
         return this.permanentaddress;

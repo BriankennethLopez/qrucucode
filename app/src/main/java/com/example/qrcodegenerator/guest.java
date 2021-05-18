@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -13,10 +14,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class guest extends AppCompatActivity {
     SharedPreferences sharedPreferences;//Creating Xml
-    EditText etgName,etpermanentddress,etpresentaddress,etgContact,etemail,etage;
-    String gResult,gName,gpermanentaddress,gpresentaddress,gContact,gemail,gage;
+    EditText etgName,etpermanentddress,etpresentaddress,etgContact,etemail,time;
+    String gResult,gName,gpermanentaddress,gpresentaddress,gContact,gemail,gtime;
     JSONObject jsonObject;
     JSONArray jsonArray;
     String result;
@@ -29,20 +33,28 @@ public class guest extends AppCompatActivity {
         etpresentaddress=findViewById(R.id.presentaddress1);
         etgContact=findViewById(R.id.etcontact1);
         etemail = findViewById(R.id.email1);
-        etage = findViewById(R.id.age1);
+        time=findViewById(R.id.time);
         sharedPreferences=getSharedPreferences("Userinform",0);
         String mname=sharedPreferences.getString("name","");
         String permanentaddress=sharedPreferences.getString("premanentaddress","");
         String presentaddress=sharedPreferences.getString("presentaddress","");
         String mcontact=sharedPreferences.getString("contact","");
         String memail=sharedPreferences.getString("email","");
-        String mage=sharedPreferences.getString("age","");
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-dd");
+        String datetime = simpleDateFormat.format(calendar.getTime());
+        time.setText(datetime);
+
+
+
         etgName.setText(mname);
         etpermanentddress.setText(permanentaddress);
         etpresentaddress.setText(presentaddress);
         etgContact.setText(mcontact);
-        etgContact.setText(memail);
-        etage.setText(mage);
+        etemail.setText(memail);
+
+
 
     }
 
@@ -52,8 +64,8 @@ public class guest extends AppCompatActivity {
         gpermanentaddress=etpermanentddress.getText().toString().toLowerCase();
         gContact=etgContact.getText().toString().toLowerCase();
         gemail=etemail.getText().toString().toLowerCase();
-        gage=etage.getText().toString().toLowerCase();
-        if (gName.isEmpty()&&gpermanentaddress.isEmpty()&&gpresentaddress.isEmpty()&&gemail.isEmpty()&&gage.isEmpty()&&gContact.isEmpty()){
+        gtime=time.getText().toString();
+        if (gName.isEmpty()&&gpermanentaddress.isEmpty()&&gpresentaddress.isEmpty()&&gemail.isEmpty()&&gContact.isEmpty()){
             Toast.makeText(this, "fill up all", Toast.LENGTH_SHORT).show();
         }else {
             //generate qr code
@@ -64,7 +76,7 @@ public class guest extends AppCompatActivity {
                 jsonObject.put("presentaddress",gpresentaddress);
                 jsonObject.put("contact",gContact);
                 jsonObject.put("email",gemail);
-                jsonObject.put("gage",gage);
+                jsonObject.put("date",gtime);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

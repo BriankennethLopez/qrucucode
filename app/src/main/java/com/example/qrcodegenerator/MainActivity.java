@@ -17,6 +17,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     //CLASSES
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroupthree;
     RadioButton radioButtoyesthree,radioButtonnothree,radioButtonthreevalue;
 
-    EditText etName,etContact,etoffice,etpurpose,etlocation,etpermanentAddress,etpresentaddress,etemail,etage;
+    EditText etName,etContact,etoffice,etpurpose,etlocation,etpermanentAddress,etpresentaddress,etemail,etage,ettime;
     String gResult,gName,gpermanentaddress,gpresenttaddress,gContact,goffice,gPurpose,glocation,gemail,gage,radiodataone,radiodatatwo,radiodatathree;
     JSONObject jsonObject;
     JSONArray jsonArray;

@@ -24,11 +24,13 @@ public class admin extends AppCompatActivity {
     public void submit(View view) {
         String uservalue = username.getText().toString();
         String userpass = password.getText().toString();
-        if(uservalue.equals("Student")&&userpass.equals("Student")){
+        if(uservalue.equals("Scan123")&&userpass.equals("scan123")){
             Intent rt = new Intent(admin.this,Scanner.class);
             startActivity(rt);
-        }else {
-            Toast.makeText(this, "invalid", Toast.LENGTH_SHORT).show();
+            username.setText("");
+            password.setText("");
+        }else if(uservalue.equals("help")) {
+            Toast.makeText(this, "USERNAME:Scan123\nPASSWORD:Scan123", Toast.LENGTH_SHORT).show();
         }
     }
 }

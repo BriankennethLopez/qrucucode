@@ -13,7 +13,7 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
   private static final String TEXT_TYPE = " TEXT";
   private static final String INTEGER_TYPE = " INTEGER";
   private static final String COMMA_SEP = ",";
-  private static final String DATABASE_NAME = "test.db";
+  private static final String DATABASE_NAME = "tear.db";
   private static final int DATABASE_VERSION = 1;
 
   private static final String SQL_CREATE_ENTRIES =
@@ -23,6 +23,7 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
                   MemoryContract.MemoryEntry.COLUMN_PERMANENTADDRESS + TEXT_TYPE + COMMA_SEP +
                   MemoryContract.MemoryEntry.COLUMN_PRESENTADDRESS + TEXT_TYPE + COMMA_SEP +
                   MemoryContract.MemoryEntry.COLUMN_EMAIL + TEXT_TYPE + COMMA_SEP +
+                  MemoryContract.MemoryEntry.COLUMN_DATE + TEXT_TYPE + COMMA_SEP +
                   MemoryContract.MemoryEntry.COLUMN_CONTACT + TEXT_TYPE + " )";
 
   public MemoryDbHelper(Context context) {
@@ -62,6 +63,7 @@ public class MemoryDbHelper extends SQLiteOpenHelper {
     values.put(MemoryContract.MemoryEntry.COLUMN_PRESENTADDRESS, memory.getPresentaddress());
     values.put(MemoryContract.MemoryEntry.COLUMN_EMAIL, memory.getEmail());
     values.put(MemoryContract.MemoryEntry.COLUMN_CONTACT, memory.getContact());
+    values.put(MemoryContract.MemoryEntry.COLUMN_DATE, memory.getDate());
 
     return db.insert(MemoryContract.MemoryEntry.TABLE_NAME, null, values) != -1;
   }

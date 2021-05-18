@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".showallscan"></activity>
+        <activity android:name=".showallscan" />
         <activity android:name=".persontoperson" />
         <activity android:name=".scannerguest" />
         <activity android:name=".admin" />
@@ -20,7 +20,7 @@
         <activity android:name=".Scanner" />
         <activity android:name=".QRcode" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".types"/>
+        <activity android:name=".types" />
         <activity android:name=".login">
 
 

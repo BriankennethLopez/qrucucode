@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -42,7 +43,7 @@ public class persontoperson extends AppCompatActivity {
     CodeScanner codeScanner;
     CodeScannerView codeScannerView;
     TextView tvResult;
-    String gResult,gName,gpermanentaddress,gpresentaddress,gContact,gemail;
+    String gResult,gName,gpermanentaddress,gpresentaddress,gContact,gemail,gdate;
     JSONObject jsonObject;
     JSONArray jsonArray;
 
@@ -70,6 +71,7 @@ public class persontoperson extends AppCompatActivity {
                     gpresentaddress=jsonObject.getString("presentaddress");
                     gContact=jsonObject.getString("contact");
                     gemail=jsonObject.getString("email");
+                    gdate=jsonObject.getString("date");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -77,12 +79,14 @@ public class persontoperson extends AppCompatActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(persontoperson.this);
                 alert.setTitle("Confirm");
                 alert.setCancelable(false);
-                alert.setMessage("Name: "+gName +"\n"+"Present Address: "+gpresentaddress+"\n"+"Permanent Address: "+gpermanentaddress +"\n"+"Contact: "+gContact);
+                alert.setMessage("Name: "+gName +"\n"+"Present Address: "+gpresentaddress+"\n"+"Permanent Address: "+gpermanentaddress +"\n"+"Contact: "+gContact+"\n"+"Contact: "+gdate);
                 alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(persontoperson.this, "Added", Toast.LENGTH_SHORT).show();
-                        new MemoryDbHelper(persontoperson.this).addMemory(new Memory(gName,gpermanentaddress,gpresentaddress,gContact,gemail));
+                        new MemoryDbHelper(persontoperson.this).addMemory(new Memory(gName,gpermanentaddress,gpresentaddress,gContact,gemail,gdate));
+                        Intent fgs = new Intent(persontoperson.this,showallscan.class);
+                        startActivity(fgs);
 
                     }
                 });

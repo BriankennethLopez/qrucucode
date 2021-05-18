@@ -38,11 +38,14 @@ public class login extends AppCompatActivity {
             passwords.setText("");
             Intent fg = new Intent(login.this,types.class);
             startActivity(fg);
+        }else if (!uservalue.equals(registeredusername) && !userpass.equals(registeredpassword)){
+            Toast.makeText(this, "incorrect username and password", Toast.LENGTH_SHORT).show();
         }
 
 
 
-        }
+
+    }
 
 
     public void signup(View view) {
